@@ -8,11 +8,11 @@ export class Service {
   private readonly urlApi = environment['urlApi'];
   constructor(private httpClient: HttpClient) {}
 
-  public authLogin() {
+  public authLogin(email: string, senha: string) {
     var url = this.urlApi + 'auth/login';
     var usuario = {
-      email: 'lucasfelipecost4@hotmail.com',
-      password: 'Luc4s301945',
+      email: email,
+      password: senha,
     };
     return this.httpClient.post<Token>(url, usuario, {
       headers: new HttpHeaders({
